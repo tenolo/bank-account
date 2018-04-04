@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         stopOnRisky="false"
+         bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="BankAccount Unit Tests">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html"
+             target="./tests/report/code-coverage"
+             charset="UTF-8"
+             yui="true"
+             highlight="true"
+             lowUpperBound="50"
+             highLowerBound="80"/>
+        <log type="coverage-text"
+             target="php://stdout"
+             yui="true"
+             highlight="true"
+             lowUpperBound="50"
+             highLowerBound="80"/>
+        <log type="testdox-html"
+             target="./tests/report/testdox.html"/>
+    </logging>
+</phpunit>

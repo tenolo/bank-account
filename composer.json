@@ -1,0 +1,39 @@
+{
+  "name": "tenolo/bank-account",
+  "description": "Bank account utility library (e.g. IBAN)",
+  "keywords": [
+    "bank account",
+    "IBAN"
+  ],
+  "type": "library",
+  "homepage": "https://tenolo.de",
+  "authors": [
+    {
+      "name": "Christopher Christen",
+      "email": "c.christen@tenolo.de"
+    }
+  ],
+  "require": {
+    "php": "~5.6|~7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tenolo\\BankAccount\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tenolo\\BankAccount\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
