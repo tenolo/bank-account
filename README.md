@@ -1,4 +1,4 @@
-# Bank-Account-Bibliothek (PHP 5.6.+)
+# Bank-Account-Bibliothek (PHP 5.3.+)
 
 Die Bank-Account-Bibliothek bietet hilfreiche Klassen z.B zur Validierung, Generierung und Interpretation
 von IBANs.
