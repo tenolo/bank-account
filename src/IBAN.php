@@ -2,12 +2,14 @@
 
 namespace Tenolo\BankAccount;
 
+use \IBAN as BaseIBAN;
+
 /**
  * @package   Tenolo\BankAccount
- * @author    Christopher Christen <c.christen@tenolo.de>
+ * @author    Christopher Christen <c.christen@tenolo.de>, Nikita Loges <n.loges@tenolo.de>
  * @copyright Copyright (c) 2018 tenolo GbR
  */
-class IBAN
+class IBAN extends BaseIBAN
 {
 
     /**
@@ -364,14 +366,6 @@ class IBAN
     );
 
     /**
-     * @param string $iban
-     */
-    public function __construct($iban)
-    {
-        $this->iban = preg_replace('/[^a-z0-9]+/i', '', trim(strtoupper($iban)));
-    }
-
-    /**
      * Return the normalized IBAN.
      *
      * @param bool $formatted
@@ -381,10 +375,10 @@ class IBAN
     public function getIban($formatted = false)
     {
         if ($formatted) {
-            return trim(chunk_split($this->iban, 4, ' '));
+            return $this->HumanFormat();
         }
 
-        return $this->iban;
+        return $this->MachineFormat();
     }
 
     /**
@@ -422,13 +416,21 @@ class IBAN
     }
 
     /**
+     * @return \IBANCountry
+     */
+    public function getIBANCountry()
+    {
+        return new \IBANCountry($this->getCountryCode());
+    }
+
+    /**
      * Return the alpha country code.
      *
      * @return string
      */
     public function getCountryCode()
     {
-        return strtoupper(substr($this->iban, 0, 2));
+        return $this->Country();
     }
 
     /**
@@ -460,12 +462,7 @@ class IBAN
      */
     public function getBankIdentifier()
     {
-        $countryCode = $this->getCountryCode();
-
-        $start = self::$config[$countryCode]['bank_identifier']['start'];
-        $length = self::$config[$countryCode]['bank_identifier']['length'];
-
-        return substr($this->iban, $start, $length);
+        return $this->Bank();
     }
 
     /**
@@ -475,12 +472,7 @@ class IBAN
      */
     public function getAccountNumber()
     {
-        $countryCode = $this->getCountryCode();
-
-        $start = self::$config[$countryCode]['account_number']['start'];
-        $length = self::$config[$countryCode]['account_number']['length'];
-
-        return substr($this->iban, $start, $length);
+        return $this->Account();
     }
 
     /**
