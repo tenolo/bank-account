@@ -1,0 +1,5 @@
+services:
+    tenolo_bank_account.twig_extension.iban:
+        class: Tenolo\BankAccount\Twig\Extension\IBANExtension
+        tags:
+            - { name: twig.extension }
