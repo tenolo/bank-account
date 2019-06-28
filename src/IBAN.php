@@ -2,7 +2,7 @@
 
 namespace Tenolo\BankAccount;
 
-use \IBAN as BaseIBAN;
+use IBAN as BaseIBAN;
 
 /**
  * @package   Tenolo\BankAccount
@@ -20,350 +20,350 @@ class IBAN extends BaseIBAN
     /**
      * @var array
      */
-    protected $validationErrors = array();
+    protected $validationErrors = [];
 
     /**
      * @var array
      *
      * @see https://de.wikipedia.org/wiki/IBAN
      */
-    protected static $config = array(
-        'AD' => array( // Andorra
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 12, 'length' => 12),
-        ),
-        'AE' => array( // United Arab Emirates
-            'iban_length' => 23,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 16),
-        ),
-        'AL' => array( // Albania
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 12, 'length' => 16),
-        ),
-        'AO' => array( // Angola
-            'iban_length' => 25,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 12, 'length' => 11),
-        ),
-        'AT' => array( // Austria
-            'iban_length' => 20,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 9, 'length' => 11),
-        ),
-        'AZ' => array( // Azerbaijan
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 20),
-        ),
-        'BA' => array( // Bosnia and Herzegovina
-            'iban_length' => 20,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 10, 'length' => 8),
-        ),
-        'BE' => array( // Belgium
-            'iban_length' => 16,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 7),
-        ),
-        'BG' => array( // Bulgaria
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 14, 'length' => 8),
-        ),
-        'BH' => array( // Bahrain
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 14),
-        ),
-        'BR' => array( // Brazil
-            'iban_length' => 29,
-            'bank_identifier' => array('start' => 4, 'length' => 8),
-            'account_number' => array('start' => 17, 'length' => 10),
-        ),
-        'CH' => array( // Switzerland
-            'iban_length' => 21,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 9, 'length' => 12),
-        ),
-        'CY' => array( // Cyprus
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 12, 'length' => 16),
-        ),
-        'CZ' => array( // Czech Republic
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 16),
-        ),
-        'DE' => array( // Germany
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 8),
-            'account_number' => array('start' => 12, 'length' => 10),
-        ),
-        'DK' => array( // Denmark
-            'iban_length' => 18,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 9),
-        ),
-        'DO' => array( // Dominican Republic
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 20),
-        ),
-        'EE' => array( // Estonia
-            'iban_length' => 20,
-            'bank_identifier' => array('start' => 4, 'length' => 2),
-            'account_number' => array('start' => 6, 'length' => 13),
-        ),
-        'ES' => array( // Spain
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 14, 'length' => 10),
-        ),
-        'FI' => array( // Finland
-            'iban_length' => 18,
-            'bank_identifier' => array('start' => 4, 'length' => 6),
-            'account_number' => array('start' => 10, 'length' => 7),
-        ),
-        'FO' => array( // Faroe Islands
-            'iban_length' => 18,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 9),
-        ),
-        'FR' => array( // France
-            'iban_length' => 27,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 14, 'length' => 11),
-        ),
-        'GA' => array( // Gabon
-            'iban_length' => 27,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 14, 'length' => 11),
-        ),
-        'GB' => array( // United Kingdom
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 14, 'length' => 8),
-        ),
-        'GE' => array( // Georgia
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 2),
-            'account_number' => array('start' => 6, 'length' => 16),
-        ),
-        'GI' => array( // Gibraltar
-            'iban_length' => 23,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 15),
-        ),
-        'GL' => array( // Greenland
-            'iban_length' => 18,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 9),
-        ),
-        'GR' => array( // Greece
-            'iban_length' => 27,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 11, 'length' => 16),
-        ),
-        'GT' => array( // Guatemala
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 12, 'length' => 16),
-        ),
-        'HR' => array( // Croatia
-            'iban_length' => 21,
-            'bank_identifier' => array('start' => 4, 'length' => 7),
-            'account_number' => array('start' => 11, 'length' => 10),
-        ),
-        'HU' => array( // Hungary
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 12, 'length' => 15),
-        ),
-        'IE' => array( // Ireland
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 14, 'length' => 8),
-        ),
-        'IL' => array( // Israel
-            'iban_length' => 23,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 10, 'length' => 13),
-        ),
-        'IT' => array( // Italy
-            'iban_length' => 27,
-            'bank_identifier' => array('start' => 5, 'length' => 5),
-            'account_number' => array('start' => 15, 'length' => 12),
-        ),
-        'JO' => array( // Jordan
-            'iban_length' => 30,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 12, 'length' => 18),
-        ),
-        'KW' => array( // Kuwait
-            'iban_length' => 30,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 22),
-        ),
-        'KZ' => array( // Kazakhstan
-            'iban_length' => 20,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 13),
-        ),
-        'LB' => array( // Lebanon
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 20),
-        ),
-        'LI' => array( // Liechtenstein
-            'iban_length' => 21,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 9, 'length' => 12),
-        ),
-        'LT' => array( // Lithuania
-            'iban_length' => 20,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 9, 'length' => 11),
-        ),
-        'LU' => array( // Luxembourg
-            'iban_length' => 20,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 13),
-        ),
-        'LV' => array( // Latvia
-            'iban_length' => 21,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 13),
-        ),
-        'MC' => array( // Monaco
-            'iban_length' => 27,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 14, 'length' => 11),
-        ),
-        'MD' => array( // Moldova
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 2),
-            'account_number' => array('start' => 6, 'length' => 18),
-        ),
-        'ME' => array( // Montenegro
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 13),
-        ),
-        'MK' => array( // Macedonia
-            'iban_length' => 19,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 10),
-        ),
-        'MR' => array( // Mauritania
-            'iban_length' => 27,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 14, 'length' => 11),
-        ),
-        'MT' => array( // Malta
-            'iban_length' => 31,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 13, 'length' => 18),
-        ),
-        'MU' => array( // Mauritius
-            'iban_length' => 30,
-            'bank_identifier' => array('start' => 4, 'length' => 6),
-            'account_number' => array('start' => 12, 'length' => 15),
-        ),
-        'NL' => array( // Netherlands
-            'iban_length' => 18,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 10),
-        ),
-        'NO' => array( // Norway
-            'iban_length' => 15,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 6),
-        ),
-        'PK' => array( // Pakistan
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 10, 'length' => 14),
-        ),
-        'PL' => array( // Poland
-            'iban_length' => 28,
-            'bank_identifier' => array('start' => 4, 'length' => 8),
-            'account_number' => array('start' => 12, 'length' => 16),
-        ),
-        'PT' => array( // Portugal
-            'iban_length' => 25,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 12, 'length' => 11),
-        ),
-        'QA' => array( // Quatar
-            'iban_length' => 29,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 21),
-        ),
-        'RO' => array( // Romania
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 16),
-        ),
-        'RS' => array( // Serbia
-            'iban_length' => 22,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 13),
-        ),
-        'SA' => array( // Saudi Arabia
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 2),
-            'account_number' => array('start' => 6, 'length' => 18),
-        ),
-        'SE' => array( // Sweden
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 16),
-        ),
-        'SI' => array( // Slovenia
-            'iban_length' => 19,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 9, 'length' => 8),
-        ),
-        'SK' => array( // Slovak Republic
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 8, 'length' => 16),
-        ),
-        'SM' => array( // San Marino
-            'iban_length' => 27,
-            'bank_identifier' => array('start' => 5, 'length' => 5),
-            'account_number' => array('start' => 15, 'length' => 12),
-        ),
-        'ST' => array( // Sao Tome and Principe
-            'iban_length' => 25,
-            'bank_identifier' => array('start' => 4, 'length' => 4),
-            'account_number' => array('start' => 12, 'length' => 11),
-        ),
-        'TL' => array( // Timor leste
-            'iban_length' => 23,
-            'bank_identifier' => array('start' => 4, 'length' => 3),
-            'account_number' => array('start' => 7, 'length' => 14),
-        ),
-        'TN' => array( // Tunisia
-            'iban_length' => 24,
-            'bank_identifier' => array('start' => 4, 'length' => 2),
-            'account_number' => array('start' => 9, 'length' => 13),
-        ),
-        'TR' => array( // Turkey
-            'iban_length' => 26,
-            'bank_identifier' => array('start' => 4, 'length' => 5),
-            'account_number' => array('start' => 10, 'length' => 16),
-        ),
-        'XK' => array( // Kosovo
-            'iban_length' => 20,
-            'bank_identifier' => array('start' => 4, 'length' => 2),
-            'account_number' => array('start' => 8, 'length' => 10),
-        ),
-    );
+    protected static $config = [
+        'AD' => [ // Andorra
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 12, 'length' => 12],
+        ],
+        'AE' => [ // United Arab Emirates
+            'iban_length'     => 23,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 16],
+        ],
+        'AL' => [ // Albania
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 12, 'length' => 16],
+        ],
+        'AO' => [ // Angola
+            'iban_length'     => 25,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 12, 'length' => 11],
+        ],
+        'AT' => [ // Austria
+            'iban_length'     => 20,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 9, 'length' => 11],
+        ],
+        'AZ' => [ // Azerbaijan
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 20],
+        ],
+        'BA' => [ // Bosnia and Herzegovina
+            'iban_length'     => 20,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 10, 'length' => 8],
+        ],
+        'BE' => [ // Belgium
+            'iban_length'     => 16,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 7],
+        ],
+        'BG' => [ // Bulgaria
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 14, 'length' => 8],
+        ],
+        'BH' => [ // Bahrain
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 14],
+        ],
+        'BR' => [ // Brazil
+            'iban_length'     => 29,
+            'bank_identifier' => ['start' => 4, 'length' => 8],
+            'account_number'  => ['start' => 17, 'length' => 10],
+        ],
+        'CH' => [ // Switzerland
+            'iban_length'     => 21,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 9, 'length' => 12],
+        ],
+        'CY' => [ // Cyprus
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 12, 'length' => 16],
+        ],
+        'CZ' => [ // Czech Republic
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 16],
+        ],
+        'DE' => [ // Germany
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 8],
+            'account_number'  => ['start' => 12, 'length' => 10],
+        ],
+        'DK' => [ // Denmark
+            'iban_length'     => 18,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 9],
+        ],
+        'DO' => [ // Dominican Republic
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 20],
+        ],
+        'EE' => [ // Estonia
+            'iban_length'     => 20,
+            'bank_identifier' => ['start' => 4, 'length' => 2],
+            'account_number'  => ['start' => 6, 'length' => 13],
+        ],
+        'ES' => [ // Spain
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 14, 'length' => 10],
+        ],
+        'FI' => [ // Finland
+            'iban_length'     => 18,
+            'bank_identifier' => ['start' => 4, 'length' => 6],
+            'account_number'  => ['start' => 10, 'length' => 7],
+        ],
+        'FO' => [ // Faroe Islands
+            'iban_length'     => 18,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 9],
+        ],
+        'FR' => [ // France
+            'iban_length'     => 27,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 14, 'length' => 11],
+        ],
+        'GA' => [ // Gabon
+            'iban_length'     => 27,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 14, 'length' => 11],
+        ],
+        'GB' => [ // United Kingdom
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 14, 'length' => 8],
+        ],
+        'GE' => [ // Georgia
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 2],
+            'account_number'  => ['start' => 6, 'length' => 16],
+        ],
+        'GI' => [ // Gibraltar
+            'iban_length'     => 23,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 15],
+        ],
+        'GL' => [ // Greenland
+            'iban_length'     => 18,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 9],
+        ],
+        'GR' => [ // Greece
+            'iban_length'     => 27,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 11, 'length' => 16],
+        ],
+        'GT' => [ // Guatemala
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 12, 'length' => 16],
+        ],
+        'HR' => [ // Croatia
+            'iban_length'     => 21,
+            'bank_identifier' => ['start' => 4, 'length' => 7],
+            'account_number'  => ['start' => 11, 'length' => 10],
+        ],
+        'HU' => [ // Hungary
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 12, 'length' => 15],
+        ],
+        'IE' => [ // Ireland
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 14, 'length' => 8],
+        ],
+        'IL' => [ // Israel
+            'iban_length'     => 23,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 10, 'length' => 13],
+        ],
+        'IT' => [ // Italy
+            'iban_length'     => 27,
+            'bank_identifier' => ['start' => 5, 'length' => 5],
+            'account_number'  => ['start' => 15, 'length' => 12],
+        ],
+        'JO' => [ // Jordan
+            'iban_length'     => 30,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 12, 'length' => 18],
+        ],
+        'KW' => [ // Kuwait
+            'iban_length'     => 30,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 22],
+        ],
+        'KZ' => [ // Kazakhstan
+            'iban_length'     => 20,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 13],
+        ],
+        'LB' => [ // Lebanon
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 20],
+        ],
+        'LI' => [ // Liechtenstein
+            'iban_length'     => 21,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 9, 'length' => 12],
+        ],
+        'LT' => [ // Lithuania
+            'iban_length'     => 20,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 9, 'length' => 11],
+        ],
+        'LU' => [ // Luxembourg
+            'iban_length'     => 20,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 13],
+        ],
+        'LV' => [ // Latvia
+            'iban_length'     => 21,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 13],
+        ],
+        'MC' => [ // Monaco
+            'iban_length'     => 27,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 14, 'length' => 11],
+        ],
+        'MD' => [ // Moldova
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 2],
+            'account_number'  => ['start' => 6, 'length' => 18],
+        ],
+        'ME' => [ // Montenegro
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 13],
+        ],
+        'MK' => [ // Macedonia
+            'iban_length'     => 19,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 10],
+        ],
+        'MR' => [ // Mauritania
+            'iban_length'     => 27,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 14, 'length' => 11],
+        ],
+        'MT' => [ // Malta
+            'iban_length'     => 31,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 13, 'length' => 18],
+        ],
+        'MU' => [ // Mauritius
+            'iban_length'     => 30,
+            'bank_identifier' => ['start' => 4, 'length' => 6],
+            'account_number'  => ['start' => 12, 'length' => 15],
+        ],
+        'NL' => [ // Netherlands
+            'iban_length'     => 18,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 10],
+        ],
+        'NO' => [ // Norway
+            'iban_length'     => 15,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 6],
+        ],
+        'PK' => [ // Pakistan
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 10, 'length' => 14],
+        ],
+        'PL' => [ // Poland
+            'iban_length'     => 28,
+            'bank_identifier' => ['start' => 4, 'length' => 8],
+            'account_number'  => ['start' => 12, 'length' => 16],
+        ],
+        'PT' => [ // Portugal
+            'iban_length'     => 25,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 12, 'length' => 11],
+        ],
+        'QA' => [ // Quatar
+            'iban_length'     => 29,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 21],
+        ],
+        'RO' => [ // Romania
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 16],
+        ],
+        'RS' => [ // Serbia
+            'iban_length'     => 22,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 13],
+        ],
+        'SA' => [ // Saudi Arabia
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 2],
+            'account_number'  => ['start' => 6, 'length' => 18],
+        ],
+        'SE' => [ // Sweden
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 16],
+        ],
+        'SI' => [ // Slovenia
+            'iban_length'     => 19,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 9, 'length' => 8],
+        ],
+        'SK' => [ // Slovak Republic
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 8, 'length' => 16],
+        ],
+        'SM' => [ // San Marino
+            'iban_length'     => 27,
+            'bank_identifier' => ['start' => 5, 'length' => 5],
+            'account_number'  => ['start' => 15, 'length' => 12],
+        ],
+        'ST' => [ // Sao Tome and Principe
+            'iban_length'     => 25,
+            'bank_identifier' => ['start' => 4, 'length' => 4],
+            'account_number'  => ['start' => 12, 'length' => 11],
+        ],
+        'TL' => [ // Timor leste
+            'iban_length'     => 23,
+            'bank_identifier' => ['start' => 4, 'length' => 3],
+            'account_number'  => ['start' => 7, 'length' => 14],
+        ],
+        'TN' => [ // Tunisia
+            'iban_length'     => 24,
+            'bank_identifier' => ['start' => 4, 'length' => 2],
+            'account_number'  => ['start' => 9, 'length' => 13],
+        ],
+        'TR' => [ // Turkey
+            'iban_length'     => 26,
+            'bank_identifier' => ['start' => 4, 'length' => 5],
+            'account_number'  => ['start' => 10, 'length' => 16],
+        ],
+        'XK' => [ // Kosovo
+            'iban_length'     => 20,
+            'bank_identifier' => ['start' => 4, 'length' => 2],
+            'account_number'  => ['start' => 8, 'length' => 10],
+        ],
+    ];
 
     /**
      * @param null $iban
@@ -372,7 +372,7 @@ class IBAN extends BaseIBAN
      */
     public static function create($iban = null)
     {
-        return new self($iban);
+        return new static($iban);
     }
 
     /**
@@ -400,7 +400,7 @@ class IBAN extends BaseIBAN
     {
         $countryCode = $this->getCountryCode();
         $numericAccountIdentification = $this->getNumericRepresentation(substr($this->iban, 4));
-        $invertedIban = $numericAccountIdentification . $this->getNumericCountryCode() . $this->getCheckDigits();
+        $invertedIban = $numericAccountIdentification.$this->getNumericCountryCode().$this->getCheckDigits();
 
         if (!isset(static::$config[$countryCode])) {
             $this->validationErrors[] = 'Invalid IBAN country code';
@@ -526,7 +526,7 @@ class IBAN extends BaseIBAN
             $mod = '';
 
             do {
-                $a = (int)$mod . substr($leftOperand, 0, $take);
+                $a = (int)$mod.substr($leftOperand, 0, $take);
                 $leftOperand = substr($leftOperand, $take);
                 $mod = $a % $modulus;
             } while (strlen($leftOperand));
