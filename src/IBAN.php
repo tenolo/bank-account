@@ -366,6 +366,16 @@ class IBAN extends BaseIBAN
     );
 
     /**
+     * @param null $iban
+     *
+     * @return IBAN
+     */
+    public static function create($iban = null)
+    {
+        return new self($iban);
+    }
+
+    /**
      * Return the normalized IBAN.
      *
      * @param bool $formatted
