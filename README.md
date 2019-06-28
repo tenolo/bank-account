@@ -1,3 +1,12 @@
+![tenolo](https://tenolo.de/themes/486/img/tenolo_werbeagentur_bochum.png)
+
+[![Latest Stable Version](https://img.shields.io/packagist/php-v/tenolo/bank-account.svg)](https://packagist.org/packages/tenolo/bank-account)
+[![Latest Stable Version](https://poser.pugx.org/tenolo/bank-account/version)](https://packagist.org/packages/tenolo/bank-account)
+[![Total Downloads](https://poser.pugx.org/tenolo/bank-account/downloads)](https://packagist.org/packages/tenolo/bank-account)
+[![Monthly Downloads](https://poser.pugx.org/tenolo/bank-account/d/monthly)](https://packagist.org/packages/tenolo/bank-account)
+[![Latest Unstable Version](https://poser.pugx.org/tenolo/bank-account/v/unstable)](https://packagist.org/packages/tenolo/bank-account)
+[![License](https://poser.pugx.org/tenolo/bank-account/license)](https://packagist.org/packages/tenolo/bank-account)
+
 # Bank-Account-Bibliothek (PHP 5.6.+)
 
 Die Bank-Account-Bibliothek bietet hilfreiche Klassen z.B zur Validierung, Generierung und Interpretation
