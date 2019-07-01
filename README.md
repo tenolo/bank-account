@@ -7,10 +7,27 @@
 [![Total Downloads](https://img.shields.io/packagist/dm/tenolo/bank-account.svg)](https://packagist.org/packages/tenolo/bank-account)
 [![License](https://img.shields.io/packagist/l/tenolo/bank-account.svg)](https://packagist.org/packages/tenolo/bank-account)
 
-# Bank-Account-Bibliothek (PHP 5.6.+)
+# Bank-Account-Bibliothek
 
 Die Bank-Account-Bibliothek bietet hilfreiche Klassen z.B zur Validierung, Generierung und Interpretation
 von IBANs.
+
+## Install instructions
+
+First you need to add `tenolo/bank-account` to `composer.json`:
+
+``` json
+{
+   "require": {
+        "tenolo/bank-account": "~1.0"
+    }
+}
+```
+
+Please note that `dev-master` latest development version. 
+Of course you can also use an explicit version number, e.g., `1.0.*`.
+
+Then use it ;)
 
 ## IBAN
 
@@ -49,12 +66,16 @@ Réunion, Mayotte, Neukaledonien, Saint-Barthélemy, Saint-Martin, Saint-Pierre 
 
 ### Beispiel
 ```php
-$iban = new Tenolo\BankAccount\IBAN('DE57 3704 0044 0532 0130 00');
+<?php
+
+use Tenolo\BankAccount\IBAN;
+
+$iban = new IBAN::create('DE57 3704 0044 0532 0130 00');
 
 // Prüft ob Ländercode, Länge und Prüfsumme der IBAN valide sind.
 // Ist die IBAN nicht valide, gibt die getValidationErrors() Funktion
 // die entsprechenden Fehlermeldungen als array zurück.
-if (! $iban->isValid()) {
+if (!$iban->isValid()) {
     foreach($iban->getValidationErrors() as $error) {
         echo $error;
     }
@@ -70,7 +91,7 @@ $iban->getIban(true); // "DE57 3704 0044 0532 0130 00"
 $iban->getCountryCode(); // "DE"
 
 // Gibt den 4-stelligen numerischen Ländercode der IBAN zurück.
-$iban->getNumericCountryCode; // "1314"
+$iban->getNumericCountryCode(); // "1314"
 
 // Gibt die 2-stellige numerische Prüfziffer der IBAN zurück
 $iban->getCheckDigits(); // "57"
