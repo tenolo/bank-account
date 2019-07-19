@@ -7,14 +7,21 @@
 [![Total Downloads](https://img.shields.io/packagist/dm/tenolo/bank-account.svg)](https://packagist.org/packages/tenolo/bank-account)
 [![License](https://img.shields.io/packagist/l/tenolo/bank-account.svg)](https://packagist.org/packages/tenolo/bank-account)
 
-# Bank-Account-Bibliothek
+# Bank Account
 
-Die Bank-Account-Bibliothek bietet hilfreiche Klassen z.B zur Validierung, Generierung und Interpretation
-von IBANs.
+The bank account library offers helpful classes e.g. for validation, generation and interpretation of IBANs.
 
 ## Install instructions
 
 First you need to add `tenolo/bank-account` to `composer.json`:
+
+Let Composer do it for you.
+
+``` bash
+$ composer require tenolo/bank-account
+```
+
+or do it manually
 
 ``` json
 {
@@ -29,7 +36,7 @@ Of course you can also use an explicit version number, e.g., `1.0.*`.
 
 Then use it ;)
 
-## IBAN
+## Usage
 
 Mit Hilfe der IBAN-Klasse kann die Länge, der Ländercode und die Prüfsumme einer übergebenen IBAN
 validiert werden. Desweiteren kann aus einer IBAN die Bankleitzahl und Kontonummer ermittelt werden.
