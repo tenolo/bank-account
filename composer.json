@@ -28,7 +28,7 @@
     ],
     "require": {
         "php": "~5.6|~7.0",
-
+        "jschaedl/iban-validation": "^1.0",
         "globalcitizen/php-iban": "~2.6"
     },
     "require-dev": {
