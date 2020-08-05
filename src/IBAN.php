@@ -2,6 +2,7 @@
 
 namespace Tenolo\BankAccount;
 
+use PHP_IBAN\IBANCountry;
 use PHP_IBAN\IBAN as BaseIBAN;
 
 /**
