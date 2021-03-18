@@ -2,8 +2,8 @@
 
 namespace Tenolo\BankAccount;
 
-use PHP_IBAN\IBANCountry;
-use PHP_IBAN\IBAN as BaseIBAN;
+use \IBANCountry;
+use \IBAN as BaseIBAN;
 
 /**
  * @package   Tenolo\BankAccount
